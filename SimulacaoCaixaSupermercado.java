@@ -1,9 +1,9 @@
 public class SimulacaoCaixaSupermercado {
 
-    private int numeroCaixas;
-    private int mediaAtendimentos;
-    private double mediaTempoAtendimentoPorCliente;
-    private double desvioPadraoTempoAtendimentoPorCliente;
+    private int numeroCaixas; // Quantidade de caixas presentes
+    private int mediaAtendimentos; // Quantidade média de atendimento para cada caixa
+    private double mediaTempoAtendimentoPorCliente; // Tempo médio de cada atendimento em caixa
+    private double desvioPadraoTempoAtendimentoPorCliente; // Variação média entre os itendimentos
 
     private static final double TEMPO_MINIMO_ATENDIMENTO = 0.1;
 
@@ -11,14 +11,8 @@ public class SimulacaoCaixaSupermercado {
 
     public void setNumeroCaixas(int n) { this.numeroCaixas = n; }
     public void setMediaAtendimentos(int n) { this.mediaAtendimentos = n; }
-    
-    public void setMediaTempoAtendimentoPorCliente(double mu) {
-        this.mediaTempoAtendimentoPorCliente = mu;
-    }
-
-    public void setDesvioPadraoTempoAtendimentoPorCliente(double sigma) {
-        this.desvioPadraoTempoAtendimentoPorCliente = sigma;
-    }
+    public void setMediaTempoAtendimentoPorCliente(double mu) { this.mediaTempoAtendimentoPorCliente = mu; }
+    public void setDesvioPadraoTempoAtendimentoPorCliente(double sigma) { this.desvioPadraoTempoAtendimentoPorCliente = sigma; }
 
     private double tempoAtendimentoNormalTruncado() {
         double z = rng.nextGaussian();
