@@ -5,17 +5,19 @@ import java.util.List;
 public class Main {
     public static void main(String... args) {
 
-        final int NUMERO_SIMULACOES = 1000;
+        // Número de situações simuladas
+        final int NUMERO_SIMULACOES = 10000;
         final List<Double> mediasAtendimento = new ArrayList<>();
 
+        // Array para armazenar o de cada simulação
         SimulacaoCaixaSupermercado simulador = new SimulacaoCaixaSupermercado();
 
+        // Definindo as entradas para a simulação
+        simulador.setNumeroCaixas(7);
+        simulador.setMediaAtendimentos(6);
+        simulador.setMediaTempoAtendimentoPorCliente(5.00);
+        simulador.setDesvioPadraoTempoAtendimentoPorCliente(0.50);
         for (int i = 0; i < NUMERO_SIMULACOES; i++) {
-            simulador.setNumeroCaixas(1);
-
-            simulador.setMediaAtendimentos(100);
-            simulador.setMediaTempoAtendimentoPorCliente(5.00);
-            simulador.setDesvioPadraoTempoAtendimentoPorCliente(0.50);
             double mediaAtendimento = simulador.simular();
             mediasAtendimento.add(mediaAtendimento);
         }
@@ -23,8 +25,8 @@ public class Main {
         double media = media(mediasAtendimento);
         double dp = desvioPadrao(mediasAtendimento, media);
 
-        System.out.printf("Mdia dos tempos de atendimento (%.0f simulaes): %.3fmin%n", (double) NUMERO_SIMULACOES, media);
-        System.out.printf("Desvio-padro das mdias: %.3f min%n", dp);
+        System.out.printf("Média dos tempos de atendimento (%.0f simulações): %.3fmin%n", (double) NUMERO_SIMULACOES, media);
+        System.out.printf("Desvio-padro das médias: %.3fmin%n", dp);
     }
 
     private static double media(List<Double> xs) {
